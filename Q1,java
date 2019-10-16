@@ -1,0 +1,23 @@
+public class Question {
+	public static int calculateTotalPayment(double initialLevelOfDebt, double interestPercentage, double repaymentPercentage) {
+		double newDebt = initialLevelOfDebt+(initialLevelOfDebt/100*interestPercentage);
+		System.out.println(newDebt);
+		newDebt = initialLevelOfDebt-(initialLevelOfDebt/100*10);
+		System.out.println(newDebt);
+		int counter = 0;
+		while (newDebt > 50) {
+			newDebt =(int) newDebt+(newDebt/100*interestPercentage);
+			System.out.println(newDebt);
+			newDebt =(int) newDebt-(initialLevelOfDebt/100*repaymentPercentage);
+			System.out.println(newDebt);
+			counter++;
+		}
+		System.out.println(counter);
+		int result = counter*(int)repaymentPercentage+(int)newDebt+(int)(initialLevelOfDebt-(initialLevelOfDebt/100*10));
+		return result;
+	}
+	public static void main(String[] args) {
+		int v = calculateTotalPayment(1000,5,10);
+		System.out.println(""+v);
+	}
+}
